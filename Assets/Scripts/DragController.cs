@@ -35,9 +35,6 @@ public class DragController : MonoBehaviour
             foreach (Touch touch in touches) {
                 Vector3 touchPosition = Camera.current.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10f));
 
-                Debug.LogFormat("bounds: {0}", this.gameObject.GetComponent<Collider2D>().bounds);
-                Debug.LogFormat("TouchPosition: {0}", touchPosition);
-
                 if (touch.phase == TouchPhase.Began && this.isTouchingInside(touchPosition)) {
                     this.currentTouchID = touch.fingerId;
                 } else if (touch.fingerId == this.currentTouchID && touch.phase == TouchPhase.Ended) {
