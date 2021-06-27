@@ -5,6 +5,15 @@ using UnityEngine;
 public class DragController : MonoBehaviour
 {
     public int currentTouchID;
+    
+    private Rigidbody2D rigidBody;
+    private Collider2D objectCollider;
+
+    void Awake()
+    {
+        this.rigidBody = this.gameObject.GetComponent<Rigidbody2D>();
+        this.objectCollider = this.gameObject.GetComponent<Collider2D>();
+    }
 
     void Update()
     {
@@ -37,14 +46,16 @@ public class DragController : MonoBehaviour
 
                 if (touch.phase == TouchPhase.Began && this.isTouchingInside(touchPosition)) {
                     this.currentTouchID = touch.fingerId;
+                    this.rigidBody.gravityScale = 0;
                 } else if (touch.fingerId == this.currentTouchID && touch.phase == TouchPhase.Ended) {
                     this.currentTouchID = -1;
+                    this.rigidBody.gravityScale = 1;
                 }
             }
         }
     }
 
     bool isTouchingInside(Vector3 initialTouchPosition) {
-        return this.gameObject.GetComponent<Collider2D>().bounds.Contains(initialTouchPosition);
+        return this.objectCollider.bounds.Contains(initialTouchPosition);
     }
 }
