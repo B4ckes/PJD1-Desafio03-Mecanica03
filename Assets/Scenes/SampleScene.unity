@@ -476,7 +476,7 @@ PrefabInstance:
     - target: {fileID: 4919938290670947370, guid: a997dc7f26ac30041baf7c75b993c1dd,
         type: 3}
       propertyPath: m_Name
-      value: Circle
+      value: DragableCircle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a997dc7f26ac30041baf7c75b993c1dd, type: 3}
