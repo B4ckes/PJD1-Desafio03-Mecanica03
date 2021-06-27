@@ -83,3 +83,10 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+
+temp/
+.vscode/
+Library/
+obj/
+Assembly-CSharp.csproj
+PJD1-Desafio03-Mecanica03.sln
